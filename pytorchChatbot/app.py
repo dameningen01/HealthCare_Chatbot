@@ -17,11 +17,12 @@ def index():
 def chatbotResponse():
 
     if request.method == 'POST':
-        the_question = request.form['question']
+        if request.content_type =="application/json":
+            print()
+            the_question = request.get_json()['question']
 
-        response = chat.chatbot_response(the_question)
-
-    return jsonify({"response": response })
+            response = chat.chatbot_response(the_question)
+    return jsonify(response)
 
 
 

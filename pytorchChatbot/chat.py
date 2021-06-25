@@ -62,13 +62,13 @@ def chatbot_response(sentence):
                 res = random.choice(intent['responses'])
                 intent_tags_list.append(tag)   
     elif "results" in sentence:
-        res = listToString(test.what_are_your_symptoms(filter_disease(intent_tags_list)))
+        dic= test.what_are_your_symptoms(filter_disease(intent_tags_list))
+        res=dic
         print("\n ****/////***")
-        print(res)
+        print(dic)
         print("\n ***/////****")
     else:
         res = " I do not understand..."
-    print(res)
     print(filter_disease(intent_tags_list))
 
     return res

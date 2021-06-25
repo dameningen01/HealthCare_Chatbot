@@ -59,8 +59,9 @@
                   question: $("#question").val()
               },
               success: function(result) {
-                $("#response").append("<br>Me: "+$("#question").val()+ "<br> Asuna: "+result.response);
-                $("#question").val("")
+                $("#response").append("<br>Me: "+$("#question").val()+ "<br> Asuna: "+result.illness+"with a % of"+(result.probability*100));
+                $("#question").val("");
+                console.log(result);
               },
               error: function(result) {
                   alert('error');

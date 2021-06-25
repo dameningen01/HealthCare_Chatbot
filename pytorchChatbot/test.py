@@ -8,28 +8,29 @@ def what_are_your_symptoms(patient_symptoms):
       "dizziness",
 	]"""
 
-	symptoms_matched = 0
 	potential_diagnosis = []#[[desease,percent]]
-	percentages = []#these two are parrallel lists
+	proba = []#these two are parrallel lists
 	with open('disease.json','r') as f:
 		diseases = json.load(f)
 		for patient_symptom in patient_symptoms:
 			for disease in diseases:
 				if patient_symptom in diseases[disease]['symptoms']:
-					symptoms_matched+=1
+					total_symp = len(diseases[disease]['symptoms'])
+					print("symptoms",diseases[disease]['symptoms'])
 					if diseases[disease]['disease'] in potential_diagnosis:
 						i = potential_diagnosis.index(diseases[disease]['disease'])
-						percentages[i] = 1 + percentages[i]
+						proba[i] += 1/total_symp
 					else:
 						potential_diagnosis.append(diseases[disease]['disease'])
-						percentages.append(1)
-		for i in range(len(percentages)):
-			percentages[i] = percentages[i]/symptoms_matched
+						proba.append(1/total_symp)
 		
-		if percentages == []:
+		if proba == []:
 			j = 0
-			potential_diagnosis.append("you are maybe exausted")
+			potential_diagnosis.append(["you are maybe exausted",])
+			mx = "?"
 		else:
-			j = percentages.index(max(percentages))
+			mx = max(proba)
+			mx = "{:.4f}".format(mx)
+			j = proba.index(mx)
 		#print(potential_diagnosis)
-	return potential_diagnosis[j]
+	return {"illness":potential_diagnosis[j][0],"probability":mx}
