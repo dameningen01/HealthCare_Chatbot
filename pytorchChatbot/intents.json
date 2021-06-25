@@ -36,7 +36,8 @@
       "patterns": [
         "I have a headache",
         "My head hurts",
-        "head pain"
+        "head pain",
+        "pain"
       ],
       "responses": [
         "Is it Primary headache or Secondary headache?",
@@ -143,6 +144,17 @@
         "You may have gastritis (inflammation of the stomach lining)",
         "You may have constipation, a common condition that affects people of all ages. It can mean that you're not passing stools regularly or you're unable to completely empty your bowel. It isn't usually serious and can be treated by a pharmacist. Your pharmacist may recommend that you contact your GP practice if required.",
         "You may have heartburn and acid reflux, a common condition, where acid from the stomach leaks up into the oesophagus (gullet). You may also suffer from symptoms such as heartburn and an unpleasant taste in the back of the mouth. It may just be an occasional nuisance for some people, but for others it can be a severe, lifelong problem. Your pharmacist may recommend that you contact your GP practice if required"
+      ]
+    },
+    {
+      "tag": "fever",
+      "patterns": [
+        "my temperature is above normal",
+        "i have a bit of temperature"
+      ],
+      "responses": [
+        "we ll be right with you",
+        "You may have sesonal alergie. Your pharmacist may recommend that you contact your GP practice if required"
       ]
     }
   ]
